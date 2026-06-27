@@ -25,6 +25,9 @@
 		color: #333;
 		overflow-x: hidden;
 		background: linear-gradient(60deg, #e8fefc, #e8d7ff, #fee7f9, #fffbed );
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: cover;
 		}
 /* Navigation Styles */
 .nav-container {
@@ -139,11 +142,25 @@ body {
 		align-items: center;
 		gap: 20px; 
 		}
+		.home-hero {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		}
+		.home-photo {
+		flex: 1 1 50%;
+		min-width: 0;
+		display: flex;
+		justify-content: center;
+		}
 		.intro-content {
 		max-width: 50%;
 		text-align: left;
 		margin-left: 10px;
-		flex: 1;
+		flex: 1 1 50%;
+		min-width: 0;
 		}
 		.name {
 		font-family: "Merienda"; !important;
@@ -179,6 +196,9 @@ body {
 		font-size: 1.5em;
 		color: #6a5acd;
 		margin-top: 20px;
+		text-align: left;
+		margin-left: 100px;
+		min-height: 2.5em;
 		}
 		.typed-cursor {
 		font-weight: bold;
@@ -499,54 +519,69 @@ body {
 		}
 		/* Responsive Styles */
 		@media (max-width: 992px) {
-		.home-page {
-		flex-direction: column;
+			.home-page,
+			.home-hero {
+			flex-direction: column;
+			}
+			.intro-content, .photo-placeholder {
+			max-width: 100%;
+			width: 100%;
+			}
+			.intro-content {
+			text-align: center;
+			margin-left: 0;
+			}
+			.intro-content img {
+			margin-left: auto;
+			margin-right: auto;
+			}
+			.typed-container {
+			margin-left: 0;
+			text-align: center;
+			}
+			.photo-placeholder {
+			margin-top: 80px;
+			height: 300px;
+			}
+			.projects-container {
+			flex-direction: column;
+			align-items: center;
+			}
+			.project-tile {
+			width: 90%;
+			}
+			.project-modal {
+			width: 90%;
+			height: 80%;
+			}
 		}
-		.intro-content, .photo-placeholder {
-		max-width: 100%;
-		width: 100%;
+		@media (max-width: 768px) {
+		  .nav-container {
+			right: 10px;
+			top: 10px;
+			gap: 8px;
+		  }
+		  .nav-container a {
+			width: 44px;
+			height: 44px;
+		  }
+		  .nav-container a:hover {
+			height: 78px;
+			width: 44px;
+		  }
+		  .content {
+			margin-left: 0;
+			padding: 0;
+		  }
+		  .name {
+			font-size: 40px;
+		  }
+		  .typed-container {
+			font-size: 1.2em;
+			margin-left: 0;
+			text-align: center;
+		  }
 		}
-		.photo-placeholder {
-		margin-top: 80px;
-		height: 300px;
-		}
-		.projects-container {
-		flex-direction: column;
-		align-items: center;
-		}
-		.project-tile {
-		width: 90%;
-		}
-		.project-modal {
-		width: 90%;
-		height: 80%;
-		}
-		}
-@media (max-width: 768px) {
-  .nav-container {
-    right: 10px;
-    top: 10px;
-    gap: 8px;
-  }
-  .nav-container a {
-    width: 44px;
-    height: 44px;
-  }
-  .nav-container a:hover {
-    height: 78px;
-    width: 44px;
-  }
-  .content {
-    margin-left: 0;
-    padding: 0;
-  }
-  .name {
-    font-size: 40px;
-  }
-  .typed-container {
-    font-size: 1.2em;
-  }
-}
 		
 		/* Certification Page Specific Styles */
 		.certifications-page {
@@ -645,21 +680,22 @@ body {
             
 			<section id="home" class="home-page">
 			
-				<div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 20px;">
-                    <div style="display: flex; justify-content: center;">
+				<div class="home-hero">
+                    <div class="home-photo">
 						<img src="images/my_photo_transparent_bckgrnd3.png" 
 						alt = "My Photo"
-						style="max-height: 600px; max-width:600px; object-fit: contain; margin: 10px; display: block;">
+						style="max-height: 600px; max-width: 100%; object-fit: contain; margin: 10px; display: block;">
 					</div>
                 
 					<div class="intro-content">
 						
 							<p><img src="images/cursive_name_transparent_bckgrnd.png" 
 								alt = "My Name"
-								style="max-height: 250px; max-width:550px; object-fit: contain; display: block;">
+								style="max-height: 250px; max-width: 100%; object-fit: contain; display: block;">
 							</p>
 						
-							<h2 class="typed-container" style="text-align: left; margin-left: 100px;">
+							<h2 class="typed-container">
+							
 								<span class="typed"></span>
 							</h2>
 					</div>
